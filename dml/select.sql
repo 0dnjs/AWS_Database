@@ -36,3 +36,18 @@ group by
 	student_age
 having
 	total_score = 40;
+    
+select
+	count(*)
+from
+	student_tb
+where
+	student_age = 20;
+    
+select
+	*
+from
+	student_tb
+order by
+	student_score desc,
+    student_id desc;
