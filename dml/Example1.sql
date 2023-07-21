@@ -45,18 +45,16 @@ order by
 -- 3. 카테고리별 등록된 상품이 몇개씩 동록되어 있는지 조회하시오.
 
 select
-	ct.category_id,
+	pt.category_id,
 	ct.category_name,
 	sum(pt.category_id) as total_category_id
     
 from
-	category_tb ct
-    left outer join product_tb pt on(pt.category_id = ct.category_id)
+	category_tb pt
+    left outer join category_tb ct on(pt.category_id = ct.category_id)
 group by
 	pt.category_id,
-    ct.category_name,
-    ct.category_id;
-    
+    ct.category_name;    
 
 
 -- 4. address_tb sido 컬럼을 참조하여 각 지역별로 판매된 상품의 총액을 조회하시오. (null값 빼고 판매량이 없을때는 0이 나오게)
